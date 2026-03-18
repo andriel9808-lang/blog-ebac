@@ -1,0 +1,31 @@
+.header {
+  padding: 4rem 0 3.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3rem;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logo {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+
+.logo:hover {
+  opacity: 1;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+}

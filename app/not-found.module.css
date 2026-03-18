@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.code {
+  font-size: 6rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: -0.05em;
+}
+
+.mensagem {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  opacity: 1;
+}

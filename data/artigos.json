@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "slug": "introducao-ao-nextjs-15",
+    "titulo": "Introdução ao Next.js 15",
+    "autor": "Andriel Oliveira",
+    "dataPublicacao": "2025-03-01",
+    "descricao": "Um guia completo para começar com Next.js 15, explorando o App Router, Server Components e as novidades da versão.",
+    "conteudo": "Next.js 15 trouxe mudanças significativas no ecossistema React. Com o App Router como padrão, as páginas agora são Server Components por padrão, o que melhora a performance e simplifica o data fetching.\n\nUma das principais mudanças é que não precisamos mais usar useEffect para buscar dados em páginas. Podemos simplesmente tornar a função da página assíncrona e fazer o fetch direto:\n\n```tsx\nexport default async function Page() {\n  const data = await fetch('https://api.exemplo.com/dados')\n  const json = await data.json()\n  return <div>{json.titulo}</div>\n}\n```\n\nAlém disso, o App Router suporta layouts aninhados, loading states automáticos com loading.tsx, e tratamento de erros com error.tsx. Cada pasta dentro de /app representa um segmento de rota, tornando a estrutura muito mais intuitiva.\n\nO sistema de metadata também evoluiu: agora você pode exportar um objeto metadata ou uma função generateMetadata para definir title, description, og tags e muito mais de forma declarativa."
+  },
+  {
+    "id": "2",
+    "slug": "server-components-vs-client-components",
+    "titulo": "Server Components vs Client Components",
+    "autor": "Andriel Oliveira",
+    "dataPublicacao": "2025-03-08",
+    "descricao": "Entenda quando usar Server Components e quando usar Client Components no React e Next.js, com exemplos práticos.",
+    "conteudo": "Uma das dúvidas mais comuns no Next.js moderno é: quando devo usar Server Component e quando devo usar Client Component?\n\nServer Components são renderizados no servidor e nunca chegam ao bundle do cliente. São ideais para:\n- Buscar dados diretamente (banco de dados, APIs)\n- Acessar recursos do servidor (sistema de arquivos, variáveis de ambiente)\n- Componentes que não precisam de interatividade\n\nClient Components são necessários quando você precisa de:\n- Hooks do React (useState, useEffect, useContext)\n- Eventos do browser (onClick, onChange)\n- APIs do browser (localStorage, window)\n- Bibliotecas que dependem do DOM\n\nPara marcar um componente como Client Component, basta adicionar 'use client' no topo do arquivo:\n\n```tsx\n'use client'\nimport { useState } from 'react'\n\nexport function Contador() {\n  const [count, setCount] = useState(0)\n  return <button onClick={() => setCount(count + 1)}>{count}</button>\n}\n```\n\nUma boa estratégia é manter o máximo possível como Server Components e empurrar a interatividade para folhas da árvore de componentes."
+  },
+  {
+    "id": "3",
+    "slug": "seo-com-nextjs-metadata-api",
+    "titulo": "SEO com Next.js: Metadata API",
+    "autor": "Andriel Oliveira",
+    "dataPublicacao": "2025-03-15",
+    "descricao": "Como usar a Metadata API do Next.js 15 para criar SEO dinâmico e melhorar o rankeamento das suas páginas.",
+    "conteudo": "O Next.js 15 oferece uma Metadata API poderosa que substitui o antigo next/head. Existem duas formas de definir metadados: estático e dinâmico.\n\nMetadata estático é simples: você exporta um objeto metadata da sua página:\n\n```tsx\nexport const metadata = {\n  title: 'Minha Página',\n  description: 'Descrição da minha página'\n}\n```\n\nMetadata dinâmico usa a função generateMetadata, ideal para páginas que dependem de dados externos:\n\n```tsx\nexport async function generateMetadata({ params }) {\n  const artigo = await buscarArtigo(params.slug)\n  return {\n    title: artigo.titulo,\n    description: artigo.descricao,\n    openGraph: {\n      title: artigo.titulo,\n      description: artigo.descricao,\n    }\n  }\n}\n```\n\nAlém de title e description, você pode configurar: Open Graph tags para redes sociais, Twitter Cards, robots (indexação), canonical URLs, e muito mais. O Next.js cuida automaticamente da deduplicação de tags e da herança de metadados entre layouts e páginas.\n\nUma dica importante: use o campo template no título do layout raiz para que todas as páginas herdem o sufixo do site:\n\n```tsx\ntitle: { template: '%s | Meu Blog', default: 'Meu Blog' }\n```"
+  },
+  {
+    "id": "4",
+    "slug": "deploy-nextjs-vercel-guia-completo",
+    "titulo": "Deploy de Next.js na Vercel: Guia Completo",
+    "autor": "Andriel Oliveira",
+    "dataPublicacao": "2025-03-20",
+    "descricao": "Passo a passo para fazer o deploy do seu projeto Next.js na Vercel, configurar variáveis de ambiente e garantir que tudo funcione em produção.",
+    "conteudo": "A Vercel é a plataforma criada pelo mesmo time do Next.js, então a integração entre os dois é perfeita. O processo de deploy é simples e rápido.\n\nPasso 1: Crie uma conta na Vercel em vercel.com e conecte com o seu GitHub.\n\nPasso 2: Clique em 'Add New Project' e importe o repositório do seu projeto Next.js.\n\nPasso 3: A Vercel detecta automaticamente que é um projeto Next.js e configura o build command (next build) e o output directory (.next).\n\nPasso 4: Se você tiver variáveis de ambiente, adicione-as na seção 'Environment Variables' antes de fazer o deploy.\n\nPasso 5: Clique em 'Deploy' e aguarde. Em poucos minutos seu projeto estará no ar com uma URL pública.\n\nA Vercel também oferece preview deployments: cada Pull Request gera uma URL de preview automática, facilitando muito o processo de revisão de código.\n\nAlguns pontos importantes para produção:\n- Variáveis de ambiente com NEXT_PUBLIC_ ficam expostas no cliente\n- Use o painel da Vercel para ver logs de build e runtime\n- Configure um domínio personalizado nas configurações do projeto\n- O plano gratuito (Hobby) é suficiente para projetos pessoais e de estudo"
+  }
+]
