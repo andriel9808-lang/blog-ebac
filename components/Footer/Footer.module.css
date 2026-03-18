@@ -1,8 +1,48 @@
 .footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
+  background: var(--text);
+  color: rgba(255,255,255,0.5);
+  padding: 3rem 2rem;
+  margin-top: 6rem;
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: white;
+}
+
+.amp {
+  background: var(--grad-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brand p {
   font-size: 0.825rem;
-  color: var(--text-muted);
-  text-align: center;
+}
+
+.credit {
+  font-size: 0.825rem;
+}
+
+.credit a {
+  color: var(--orange);
 }

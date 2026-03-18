@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTodosArtigos, getArtigoPorSlug } from "@/lib/artigos";
-import ArticlePage from "@/components/ArticlePage/ArticlePage";
+import RecipePage from "@/components/RecipePage/RecipePage";
 import Footer from "@/components/Footer/Footer";
 import styles from "./page.module.css";
 
@@ -20,8 +20,8 @@ export async function generateMetadata({
 
   if (!artigo) {
     return {
-      title: "Artigo não encontrado",
-      description: "O artigo que você procura não existe.",
+      title: "Receita não encontrada",
+      description: "A receita que você procura não existe.",
     };
   }
 
@@ -44,7 +44,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function ArtigoPageRoute({
+export default async function ReceitaPageRoute({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -55,9 +55,11 @@ export default async function ArtigoPageRoute({
   if (!artigo) notFound();
 
   return (
-    <main className={styles.container}>
-      <ArticlePage artigo={artigo} />
+    <>
+      <main className={styles.container}>
+        <RecipePage artigo={artigo} />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

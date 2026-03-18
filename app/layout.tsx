@@ -1,24 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | DevBlog",
-    default: "DevBlog — Artigos sobre desenvolvimento web",
+    template: "%s | Sabor & Arte",
+    default: "Sabor & Arte — Gastronomia com alma",
   },
   description:
-    "Blog com artigos sobre Next.js, React, desenvolvimento front-end e back-end.",
+    "Receitas autorais, técnicas clássicas e histórias por trás dos pratos mais incríveis do mundo.",
 };
 
 export default function RootLayout({
@@ -28,9 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
