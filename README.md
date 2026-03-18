@@ -6,7 +6,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)
 
-🔗 **[Ver projeto ao vivo](https://blog-ebac.vercel.app)** &nbsp;|&nbsp; 💻 **[Repositório](https://github.com/andriel9808-lang/blog-ebac)**
+🔗 **[Ver projeto ao vivo](https://blog-ebac-nine.vercel.app)** &nbsp;|&nbsp; 💻 **[Repositório](https://github.com/andriel9808-lang/blog-ebac)**
 
 ---
 
